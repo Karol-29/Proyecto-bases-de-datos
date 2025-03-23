@@ -4,7 +4,8 @@ CREATE TABLE Penalties (
     reason VARCHAR2(50) NOT NULL,
     type VARCHAR2(1) NOT NULL,
     idBid INT,
-    idAuction INT
+    idAuction INT,
+    owner INT
 );
 
 CREATE TABLE Bids (
@@ -43,8 +44,7 @@ CREATE TABLE Users (
     id INT NOT NULL,
     name VARCHAR2(255) NOT NULL,
     mail VARCHAR2(255) NOT NULL,
-    address INT NOT NULL,
-    penalty INT
+    address INT NOT NULL
 );
 
 CREATE TABLE PhoneNumbers (
@@ -73,7 +73,7 @@ CREATE TABLE TypesDelivery (
 CREATE TABLE ToAddress (
     id INT NOT NULL,
     shippingCost DECIMAL(10,2) NOT NULL,
-    deliveryTime INT NOT NULL,
+    deliveryTime DATE NOT NULL,
     address INT NOT NULL
 );
 
@@ -89,8 +89,6 @@ CREATE TABLE Products (
     url VARCHAR2(500) NOT NULL,
     category INT NOT NULL
 );
-
-
 
 CREATE TABLE Categories (
     id INT NOT NULL,
