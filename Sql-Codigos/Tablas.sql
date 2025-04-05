@@ -48,13 +48,13 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE PhoneNumbers (
-    id_user INT NOT NULL,
+    idUser INT NOT NULL,
     phoneNumber VARCHAR2(10) NOT NULL
 );
 
 CREATE TABLE Registered (
     id INT NOT NULL,
-    registered_date DATE NOT NULL,
+    registeredDate DATE NOT NULL,
     password VARCHAR2(255) NOT NULL
 );
 
@@ -79,7 +79,7 @@ CREATE TABLE ToAddress (
 
 CREATE TABLE PickUp (
     id INT NOT NULL,
-    pickUp_date DATE NOT NULL
+    pickUpDate DATE NOT NULL
 );
 
 CREATE TABLE Products (
