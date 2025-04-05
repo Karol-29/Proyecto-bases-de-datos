@@ -38,7 +38,7 @@ ADD CONSTRAINT fk_users_penalty FOREIGN KEY (penalty) REFERENCES Penalties(id);
 
 
 ALTER TABLE PhoneNumbers 
-ADD CONSTRAINT fk_phonenumbers_user FOREIGN KEY (id_user) REFERENCES Users(id);
+ADD CONSTRAINT fk_phonenumbers_user FOREIGN KEY (idUser) REFERENCES Users(id);
 
 ALTER TABLE Registered 
 ADD CONSTRAINT fk_registered_user FOREIGN KEY (id) REFERENCES Users(id);
