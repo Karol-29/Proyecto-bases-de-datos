@@ -44,8 +44,7 @@ CREATE TABLE Users (
     id INT NOT NULL,
     name VARCHAR2(255) NOT NULL,
     mail VARCHAR2(255) NOT NULL,
-    address INT NOT NULL,
-    penalty INT
+    address INT NOT NULL
 );
 
 CREATE TABLE PhoneNumbers (
@@ -90,8 +89,6 @@ CREATE TABLE Products (
     url VARCHAR2(500) NOT NULL,
     category INT NOT NULL
 );
-
-
 
 CREATE TABLE Categories (
     id INT NOT NULL,
