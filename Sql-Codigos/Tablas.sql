@@ -1,17 +1,17 @@
 CREATE TABLE Penalties (
     id INT NOT NULL,
-    amount DECIMAL(10,2) NOT NULL,
+    amount NUMBER(9) NOT NULL,
     reason VARCHAR2(50) NOT NULL,
-    type VARCHAR2(1) NOT NULL,
+    type CHAR(1) NOT NULL,
     idBid INT,
     idAuction INT,
-    owner INT
+    owner INT NOT NULL
 );
 
 CREATE TABLE Bids (
     id INT NOT NULL,
-    amount DECIMAL(10,2) NOT NULL,
-    status VARCHAR2(1) NOT NULL,
+    amount NUMBER(9) NOT NULL,
+    status CHAR(1) NOT NULL,
     owner INT NOT NULL
 );
 
@@ -22,9 +22,9 @@ CREATE TABLE BidsByAuctions (
 
 CREATE TABLE Auctions (
     id INT NOT NULL,
-    initialPrice DECIMAL(10,2) NOT NULL,
-    finalPrice DECIMAL(10,2) NOT NULL,
-    status VARCHAR2(1) NOT NULL,
+    initialPrice NUMBER(9) NOT NULL,
+    finalPrice NUMBER(9) NOT NULL,
+    status CHAR(1) NOT NULL,
     startTime TIMESTAMP NOT NULL,
     endTime TIMESTAMP NOT NULL,
     Payment INT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE Auctions (
 
 CREATE TABLE Payments (
     id INT NOT NULL,
-    payment_date DATE NOT NULL,
+    paymentDate DATE NOT NULL,
     method VARCHAR2(50) NOT NULL
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE TypesDelivery (
 
 CREATE TABLE ToAddress (
     id INT NOT NULL,
-    shippingCost DECIMAL(10,2) NOT NULL,
+    shippingCost NUMBER(9) NOT NULL,
     deliveryTime DATE NOT NULL,
     address INT NOT NULL
 );
