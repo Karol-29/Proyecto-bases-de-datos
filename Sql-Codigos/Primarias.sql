@@ -18,7 +18,7 @@ ALTER TABLE Users
 ADD CONSTRAINT pk_users PRIMARY KEY (id);
 
 ALTER TABLE PhoneNumbers 
-ADD CONSTRAINT pk_phonenumbers PRIMARY KEY (id_user, phoneNumber);
+ADD CONSTRAINT pk_phonenumbers PRIMARY KEY (idUser, phoneNumber);
 
 ALTER TABLE Registered 
 ADD CONSTRAINT pk_registered PRIMARY KEY (id);
