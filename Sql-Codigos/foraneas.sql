@@ -1,35 +1,45 @@
 ALTER TABLE Penalties 
-ADD CONSTRAINT fk_penalties_bid FOREIGN KEY (idBid) REFERENCES Bids(id);
+ADD CONSTRAINT fk_penalties_bid FOREIGN KEY (idBid) REFERENCES Bids(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Penalties 
-ADD CONSTRAINT fk_penalties_auction FOREIGN KEY (idAuction) REFERENCES Auctions(id);
+ADD CONSTRAINT fk_penalties_auction FOREIGN KEY (idAuction) REFERENCES Auctions(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Penalties
 ADD CONSTRAINT fk_penalties_users FOREIGN KEY (owner) REFERENCES Users(id);
 
+ALTER TABLE Penalties
+ADD CONSTRAINT fk_penalties_bid_auction FOREIGN KEY (idAuctionOwner) REFERENCES Bids(id)
+ON DELETE CASCADE;
+
 ALTER TABLE Bids
-ADD CONSTRAINT fk_bids_users FOREIGN KEY (owner) REFERENCES Users(id);
+ADD CONSTRAINT fk_bids_users FOREIGN KEY (owner) REFERENCES Users(id)
+ON DELETE CASCADE;
 
-ALTER TABLE BidsByAuctions 
-ADD CONSTRAINT fk_bidsbyauctions_bid FOREIGN KEY (idBid) REFERENCES Bids(id);
-
-ALTER TABLE BidsByAuctions 
-ADD CONSTRAINT fk_bidsbyauctions_auction FOREIGN KEY (idAuction) REFERENCES Auctions(id);
-
-ALTER TABLE Auctions 
-ADD CONSTRAINT fk_auctions_payment FOREIGN KEY (Payment) REFERENCES Payments(id);
+ALTER TABLE Bids
+ADD CONSTRAINT fk_bids_auctions FOREIGN KEY (idAuction) REFERENCES Auctions(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Auctions 
-ADD CONSTRAINT fk_auctions_organizer FOREIGN KEY (Organizer) REFERENCES Users(id);
+ADD CONSTRAINT fk_auctions_payment FOREIGN KEY (Payment) REFERENCES Payments(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Auctions 
-ADD CONSTRAINT fk_auctions_winner FOREIGN KEY (Winner) REFERENCES Users(id);
+ADD CONSTRAINT fk_auctions_organizer FOREIGN KEY (Organizer) REFERENCES Users(id)
+ON DELETE SET NULL;
 
 ALTER TABLE Auctions 
-ADD CONSTRAINT fk_auctions_address FOREIGN KEY (Address) REFERENCES Addresses(id);
+ADD CONSTRAINT fk_auctions_winner FOREIGN KEY (Winner) REFERENCES Users(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Auctions 
-ADD CONSTRAINT fk_auctions_delivery FOREIGN KEY (idDelivery) REFERENCES TypesDelivery(id);
+ADD CONSTRAINT fk_auctions_address FOREIGN KEY (Address) REFERENCES Addresses(id)
+ON DELETE SET NULL;
+
+ALTER TABLE Auctions 
+ADD CONSTRAINT fk_auctions_delivery FOREIGN KEY (idDelivery) REFERENCES TypesDelivery(id)
+ON DELETE CASCADE;
 
 ALTER TABLE Users 
 ADD CONSTRAINT fk_users_address FOREIGN KEY (address) REFERENCES Addresses(id);
@@ -56,4 +66,5 @@ ALTER TABLE AuctionByProduct
 ADD CONSTRAINT fk_auctionbyproduct_product FOREIGN KEY (idProduct) REFERENCES Products(id);
 
 ALTER TABLE AuctionByProduct
-ADD CONSTRAINT fk_auctionbyproduct_auction FOREIGN KEY (idAuction) REFERENCES Auctions(id);
+ADD CONSTRAINT fk_auctionbyproduct_auction FOREIGN KEY (idAuction) REFERENCES Auctions(id)
+ON DELETE CASCADE;

@@ -5,6 +5,7 @@ CREATE TABLE Penalties (
     type CHAR(1) NOT NULL,
     idBid INT,
     idAuction INT,
+    idAuctionBid INT NOT NULL,
     owner INT NOT NULL
 );
 
@@ -12,11 +13,7 @@ CREATE TABLE Bids (
     id INT NOT NULL,
     amount NUMBER(9) NOT NULL,
     status CHAR(1) NOT NULL,
-    owner INT NOT NULL
-);
-
-CREATE TABLE BidsByAuctions (
-    idBid INT NOT NULL,
+    owner INT NOT NULL,
     idAuction INT NOT NULL
 );
 
