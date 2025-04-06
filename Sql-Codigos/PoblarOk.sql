@@ -39,9 +39,9 @@ INSERT INTO Users (id, name, mail, address) VALUES (2, 'Maria Lopez', 'marialope
 INSERT INTO Users (id, name, mail, address) VALUES (3, 'Carlos Gomez', 'carlosgomez@example.com', 3);
 
 --Poblar Bids
-INSERT INTO Bids (id, amount, status, owner) VALUES (1, 5000, 'A', 1);
-INSERT INTO Bids (id, amount, status, owner) VALUES (2, 10000, 'E', 2);
-INSERT INTO Bids (id, amount, status, owner) VALUES (3, 15000, 'D', 3);
+INSERT INTO Bids (id, amount, status, owner, idAuction) VALUES (1, 5000, 'A', 1, 1);
+INSERT INTO Bids (id, amount, status, owner, idAuction) VALUES (2, 10000, 'E', 2, 2);
+INSERT INTO Bids (id, amount, status, owner, idAuction) VALUES (3, 15000, 'D', 3, 3);
 
 --Poblar Auctions
 INSERT INTO Auctions (id, initialPrice, finalPrice, status, startTime, endTime, Payment, Organizer, Winner, Address, idDelivery)
@@ -53,15 +53,10 @@ VALUES (2, 20000, 25000, 'B', TO_DATE('2024-03-05', 'YYYY-MM-DD'), TO_DATE('2024
 INSERT INTO Auctions (id, initialPrice, finalPrice, status, startTime, endTime, Payment, Organizer, Winner, Address, idDelivery)
 VALUES (3, 30000, 35000, 'C', TO_DATE('2024-03-10', 'YYYY-MM-DD'), TO_DATE('2024-03-20', 'YYYY-MM-DD'), 3, 3, 1, 3, 3);
 
---Poblar BidsByAuctions
-INSERT INTO BidsByAuctions (idBid, idAuction) VALUES (1, 1);
-INSERT INTO BidsByAuctions (idBid, idAuction) VALUES (2, 2);
-INSERT INTO BidsByAuctions (idBid, idAuction) VALUES (3, 3);
-
 --Poblar Penalties
-INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, owner) VALUES (1, 1000, 'Retraso en pago', 'A', 1, 1, 1);
-INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, owner) VALUES (2, 2000, 'Incumplimiento', 'B', 2, 2, 2);
-INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, owner) VALUES (3, 3000, 'Fraude', 'C', 3, 3, 3);
+INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, idAuctionBid, owner) VALUES (1, 1000, 'Retraso en pago', 'A', 1, 1, 1, 1);
+INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, idAuctionBid, owner) VALUES (2, 2000, 'Incumplimiento', 'B', 2, 2, 2, 2);
+INSERT INTO Penalties (id, amount, reason, type, idBid, idAuction, idAuctionBid, owner) VALUES (3, 3000, 'Fraude', 'C', 3, 3, 3, 3);
 
 --Poblar PhoneNumbers
 INSERT INTO PhoneNumbers (idUser, phoneNumber) VALUES (1, '3001234567');
